@@ -10,7 +10,7 @@ const constructorMethod = (app) => {
 	//app.use('/public', publicRoutes); // No Middle Ware route should display all public Data
 
 	app.use('/', (req, res) => {
-		res.status(200).json({ Home: "Welcome to inTime API Home Page" });
+		res.status(200).json({ Home: "Welcome to Birthday-Reminder API Home Page" });
 	});
 };
 
