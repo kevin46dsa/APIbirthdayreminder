@@ -6,7 +6,9 @@ async function checkbirthday(UserID){
     // code to get data from database
 
   let UserCollection = await Users();
-const userFound = await UserCollection.findOne({ Email: UserID });
+    
+    if(UserID == -1) const userFound = await UserCollection.findOne({ Email: UserID });
+else const userFound = await UserCollection.findOne({ Email: UserID }); //change this to find
 
     let birthdaytoday = [] 
     let birthdaytommrow = []
