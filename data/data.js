@@ -1,21 +1,21 @@
 
-//const mongoCollections = require('../mongoconfig/mongoCollections');
-//const Users = mongoCollections.users;
+const mongoCollections = require('../mongoconfig/mongoCollections');
+const Users = mongoCollections.users;
 
-async function checkbirthday (){
+async function checkbirthday(UserID){
     // code to get data from database
 
-  //  let UserCollection = await Users();
-	//const userFound = await UserCollection.findOne({ Email: 1 });
+  let UserCollection = await Users();
+const userFound = await UserCollection.findOne({ Email: UserID });
 
     let birthdaytoday = [] 
     let birthdaytommrow = []
-   // let datafromDB = userFound.Birthday;
-
+   	let datafromDB = userFound.Birthday;
+/*
     let datafromDB = [{
     name:'Kevin', day: 1, month:6, year: 1997
     },{name:'Kevin', day: 23, month:8, year: 1999}]
-    
+  */  
     let currentDate = new Date();
     let cDay = currentDate.getDate()
     let cMonth = currentDate.getMonth() + 1
@@ -39,9 +39,9 @@ async function checkbirthday (){
         return age
     }
 
-    const logicFunction = {
+   module.exports = {
         getCurrentAge,
         checkbirthday
-    };
+   };
     
-    export default logicFunction;
+  
