@@ -1,26 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/users');
-const dataVal = require("../data/dataValidation");
+const data = require('../data/data'); 
 
 
 
 
 router.get('/checkbirthday', async (req,res) =>{
-
+    let UserID = req.userId;
     try{
-        let reportdata = await data.generateReport();
-        console.log(reportdata);
-        res.status(200).render('view/logout', {title: 'inTime'});
-        }
-        catch(e){
-            return res.status(500).render('view/error',{title:"Error",error:e})
-        }
+        let birthdayData = await data.checkbirthday(UserID);
+        console.log(birthdayData);
+       if (birthdayData) {
+			res.status(200).send({ data: birthdayData });
+		}
+	} catch (e) {
+		return res.status(400).send({ Error: e });
+	}
 
 });
-
-
-
 
 
 
