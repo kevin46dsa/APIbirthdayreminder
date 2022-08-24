@@ -1,0 +1,6 @@
+{
+	"mongoConfig": {
+		"serverUrl": "mongodb+srv://kevin:0108@cluster0.r5jhruu.mongodb.net/test",
+		"database": "BirthdayReminder"
+	}
+}
