@@ -35,7 +35,7 @@ app.use("/users", (req, res, next) => {
 });
 
 // verify token
-app.use("/user/data", (req, res, next) => {
+app.use("/users", (req, res, next) => {
   let token = undefined;
   let tokeninbody = undefined;
     if(req.headers)token = xss(req.headers["x-access-token"]);
