@@ -26,7 +26,7 @@ app.use(express.json());
 app.use("/public", static);
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/users", (req, res, next) => {
+app.use("/auth", (req, res, next) => {
   res.header(
     "Access-Control-Allow-Headers",
     "x-access-token, Origin, Content-Type, Accept"
@@ -35,7 +35,7 @@ app.use("/users", (req, res, next) => {
 });
 
 // verify token
-app.use("/user/data", (req, res, next) => {
+app.use("/users", (req, res, next) => {
   let token = undefined;
   let tokeninbody = undefined;
     if(req.headers)token = xss(req.headers["x-access-token"]);
