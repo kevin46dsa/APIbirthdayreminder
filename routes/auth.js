@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const jwtkey = require('../config/authconfig');
+const jwtkey = require('../mongoconfig/authconfig');
 const dataFunctions = require('../data/users');
 const dataValidation = require('../data/dataValidation');
 var jwt = require('jsonwebtoken');

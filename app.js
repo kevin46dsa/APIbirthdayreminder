@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 var jwt = require("jsonwebtoken");
-const jwtkey = require("./config/authconfig"); //check
-const static = express.static(__dirname + "/public"); //notrequired
+const jwtkey = require("./mongoconfig/authconfig");
+const static = express.static(__dirname + "/public");
 const cors = require("cors");
 const configRoutes = require("./routes");
 let port = 8080;
 var xss = require("xss");
-const dataValidation = require("./data/dataValidation"); //check 
+const dataValidation = require("./data/dataValidation");
 
 
 const whitelist = ["http://localhost:3000"]; //Refrence: https://www.codingdeft.com/posts/nodejs-react-cors-error/
@@ -35,7 +35,7 @@ app.use("/users", (req, res, next) => {
 });
 
 // verify token
-app.use("/users", (req, res, next) => {
+app.use("/user/data", (req, res, next) => {
   let token = undefined;
   let tokeninbody = undefined;
     if(req.headers)token = xss(req.headers["x-access-token"]);
@@ -104,7 +104,6 @@ app.use(async (req, res, next) => {
 
 configRoutes(app);
 
-//change for hosting
 app.listen(port, () => {
   console.log(`Your routes will be running on port http://localhost/${port}`);
 });

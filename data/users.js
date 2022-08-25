@@ -3,7 +3,7 @@ const allUsers = mongoCollections.users;
 const bcrypt = require('bcryptjs');
 const dataValidation = require('./dataValidation');
 const { ObjectId } = require('mongodb');
-const Mailer = require('./mail');
+//const Mailer = require('./mail');
 
 const createUser = async (newFirstName, newLastName, newEmail, newPassword) => {
 	if (!newFirstName) throw 'No FirstName';
