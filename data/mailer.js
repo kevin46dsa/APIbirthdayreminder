@@ -1,23 +1,27 @@
 var nodemailer = require('nodemailer');
 const mailCredentials = require('../mongoconfig/authconfig');
 
+function sendEmail(Data){
+
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'youremail@gmail.com',
-    pass: 'yourpassword'
+    user: 'birthdayreminder03@gmail.com',
+    pass: 'mdpolugiogtebifa'
   }
 });
 
-var mailOptions = {
-  from: 'youremail@gmail.com',
-  to: 'myfriend@yahoo.com',
-  subject: 'Birthdays Today',
-  text: 'Here are friends that have a birthday today',
-  html: '<h1>Welcome</h1><p>That was easy!</p>' // test this out 
-};
 
-function sendMail(){
+
+
+  var mailOptions = {
+    from: 'birthdayreminder03@gmail.com',
+    to: 'kevin0108dsa@gmail.com',
+    subject: 'Birthdays Today',
+    text: `Here are friends that have a birthday today: ${Data}`,
+    html: '<h1>Welcome</h1><p>That was easy!</p>' // test this out 
+  };
+
 transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
@@ -26,8 +30,7 @@ transporter.sendMail(mailOptions, function(error, info){
     }
   });
 }
-const ReportService = {
-	sendMail
+module.exports = {
+	sendEmail,
 };
 
-export default ReportService;
