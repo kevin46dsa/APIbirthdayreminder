@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const data = require('../data/data'); 
-const mailer = require('../data/mailer')
+const mailer = require('../data/Mail')
 
 
 
