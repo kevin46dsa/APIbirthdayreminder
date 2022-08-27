@@ -22,6 +22,7 @@ var transporter = nodemailer.createTransport({
     html: '<h1>Welcome</h1><p>That was easy!</p>' // test this out 
   };
 
+function sendMail(){
 transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       console.log(error);
@@ -30,7 +31,8 @@ transporter.sendMail(mailOptions, function(error, info){
     }
   });
 }
-module.exports = {
-	sendEmail,
+const ReportService = {
+	sendMail
 };
 
+export default ReportService;
