@@ -3,5 +3,7 @@ module.exports = {
     Mailusername: 'bet.budget.expense.tracker@outlook.com',
 		Mailpassword: 'bet123456',
     everydayat0900: '0 9 * * *',
-    everyminute: '* * * * *'
+    everyminute: '* * * * *',
+    systememail: 'birthdayreminder@zohomail.com',
+    systempass: 'Cole0108world'
   };

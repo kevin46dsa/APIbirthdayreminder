@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer")
+const config = require('../mongoconfig/authconfig')
 
 async function sendEmail(BirthdayData){
     let transporter = nodemailer.createTransport({
@@ -6,8 +7,8 @@ async function sendEmail(BirthdayData){
     secure: true,
     port: 465,
     auth: {
-      user: 'birthdayreminder@zohomail.com',
-      pass: 'Cole0108world',
+      user: config.systememail,
+      pass: config.systempass,
     }
   })
 
