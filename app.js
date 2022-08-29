@@ -8,6 +8,9 @@ const configRoutes = require("./routes");
 let port = 8080;
 var xss = require("xss");
 const dataValidation = require("./data/dataValidation");
+var scheduler = require('node-schedule');
+const interval = require('./mongoconfig/authconfig')
+const datafunctions = require('./data/data')
 
 
 const whitelist = ["http://localhost:3000"]; //Refrence: https://www.codingdeft.com/posts/nodejs-react-cors-error/
@@ -101,6 +104,22 @@ app.use(async (req, res, next) => {
   );
   next();
 });
+
+
+////Schedule Jobs
+
+scheduler.scheduleJob(interval.everyminute, function(){
+
+    datafunctions.scheduledFunction();
+    
+});
+
+
+//this code is used to run the job to check if there is any birthday today and send a mail to the user
+// Code ref: https://buildcoding.com/how-to-schedule-a-job-everyday/#:~:text=When%20you%20have%20a%20few%20jobs%20that%20needs,hour%20or%20day%20or%20once%20in%20a%20week.
+
+
+
 
 configRoutes(app);
 

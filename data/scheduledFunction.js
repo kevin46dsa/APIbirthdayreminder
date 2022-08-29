@@ -1,13 +1,9 @@
 var scheduler = require('node-schedule');
 
 // setting rule set (later can be done in a config file
-var rule = new scheduler.RecurrenceRule();
-rule.hour = 00;
-rule.minute = 15;
-rule.second = 00;
-rule.dayOfWeek = new scheduler.Range(0,6);
 
-var dailyJob = scheduler.scheduleJob(rule, function(){
+
+scheduler.scheduleJob('*/2 * * * * *', function(){
 
 // code for the job
 //…

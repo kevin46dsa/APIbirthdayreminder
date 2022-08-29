@@ -1,5 +1,6 @@
 
 const mongoCollections = require('../mongoconfig/mongoCollections');
+const mail = require("./Mail")
 const Users = mongoCollections.users;
 
 async function checkbirthday(UserID){
@@ -41,9 +42,26 @@ async function checkbirthday(UserID){
         return age
     }
 
+    //this function need to get all users birthday and send it 
+    async function scheduledFunction(){ 
+      // mongodb query to find all
+      // get all users email and data
+      // forloop calling send mail function
+
+      let UserCollection = await Users();
+      userFound = await UserCollection.find({}).toArray();
+      for (let element of userFound) {
+        
+        let birthday = await checkbirthday(element.Email);
+        if(!(birthday[0].length === 0 && birthday[1].length === 0)) mail.scheduledMail(element.Email, birthday)
+      }
+    }
+  
+
    module.exports = {
         getCurrentAge,
-        checkbirthday
+        checkbirthday,
+        scheduledFunction
    };
     
   
