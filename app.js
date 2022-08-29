@@ -108,7 +108,7 @@ app.use(async (req, res, next) => {
 
 ////Schedule Jobs
 
-scheduler.scheduleJob(interval.everyminute, function(){
+scheduler.scheduleJob(interval.everydayat0900, function(){
 
     datafunctions.scheduledFunction();
     
